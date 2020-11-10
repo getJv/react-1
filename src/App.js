@@ -6,10 +6,12 @@ import "./assets/index.css";
 import "./assets/App.css";
 
 class App extends Component {
+  noteCreate() {}
+
   render() {
     return (
       <section className="conteudo">
-        <FormularioCadastro />
+        <FormularioCadastro noteCreate={this.noteCreate} />
         <ListaDeNotas />
       </section>
     );
