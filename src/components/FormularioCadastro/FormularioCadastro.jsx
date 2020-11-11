@@ -4,13 +4,13 @@ import "./FormularioCadastro.css";
 class FormularioCadastro extends Component {
   constructor(props) {
     super(props);
-    this.titulo = "";
+    this.title = "";
     this.content = "";
   }
 
   _handlerTitle(event) {
     event.stopPropagation();
-    this.titulo = event.target.value;
+    this.title = event.target.value;
   }
   _handlerContent(event) {
     event.stopPropagation();
@@ -19,12 +19,16 @@ class FormularioCadastro extends Component {
   _handlerCardCreate(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.props.noteCreate(this.titulo, this.content);
+
+    this.props.noteCreate(this.title, this.content);
   }
 
   render() {
     return (
-      <form className="form-cadastro" onSubmit={this._handlerCardCreate}>
+      <form
+        className="form-cadastro"
+        onSubmit={this._handlerCardCreate.bind(this)}
+      >
         <input
           type="text"
           placeholder="Título"
